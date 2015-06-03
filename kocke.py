@@ -17,14 +17,9 @@ class kocka:
         self.plat = tk.IntVar(master, value = None)
         self.cup = tk.BooleanVar(master, value = True)
         self.display = tk.Label(self.frame, textvariable = self.plat)
-        self.display.grid(row=0, column = 0)
-##        self.pikice = tk.Canvas(self.frame, width=300, height=300)
-##        self.pikice.grid(row = 0, column = 0)
-        self.roller = tk.Button(self.frame, text="MEČI?", command = self.loncek)
-        self.roller.grid(row = 1, column = 0)
-
-        self.da = tk.Label(self.frame, textvariable = str(self.cup))
-        self.da.grid(row=2, column=0)
+        self.display.grid(row=0, column = 0)        
+        self.display = tk.Checkbutton(self.frame, variable = self.cup)
+        self.display.grid(row=1, column=0)
       
         
 ##        self.photo = tk.PhotoImage(file = './six.png')
@@ -46,11 +41,11 @@ class tabela:
         self.kocke = []
         for a in range(6):
             dice=kocka(master)
-            dice.frame.grid(row=0,column=a)
+            dice.frame.grid(row=0,column=a+1)
             self.kocke.append(dice)
 
         self.gump = tk.Button(master, text="Vrzi vse", command = self.spusti)
-        self.gump.grid(row = 0, column =6)
+        self.gump.grid(row = 0, column =0)
 ##        dice1 = kocka(master)
 ##        dice1.frame.grid(row = 0, column = 0)
 
@@ -61,5 +56,6 @@ class tabela:
 
 
 root=tk.Tk()
+root.title("10k")
 pregled = tabela(root)
 root.mainloop
