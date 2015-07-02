@@ -113,10 +113,6 @@ class tabela:
         if self.vseh6():
             self.nova_igra()
 
-    def new_name(self):
-        with open ("{0}_dice10k.txt".format(self.igralec.get()), "a") as outp:
-            print("{0} je začel igrati!".format(self.igralec.get()), file=outp)
-
     def vseh6(self):
         for k in self.kocke:
             if k.plat.get() != 0:
@@ -176,7 +172,7 @@ class tabela:
         for a in self.kocke:
             zadnja.append(a.plat.get())
         x = oceni(zadnja)
-        with open ("{0}_dice10k.txt".format(self.igralec.get()), "a") as outp:
+        with open ("{0}_dice10k.txt".format(self.igralec.get()), "a",encoding="utf8") as outp:
             if x == 0:
                 print("{0}! To je katastrofa!".format(self.igralec.get()),file = outp)
             else:
